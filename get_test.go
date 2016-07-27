@@ -4,7 +4,7 @@ import (
 	"testing"
 
 	"github.com/cheekybits/is"
-	"github.com/matryer/m"
+	"github.com/pytlesk4/m"
 )
 
 type mapType map[string]interface{}
