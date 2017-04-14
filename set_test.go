@@ -117,7 +117,6 @@ var setTests = []struct {
 func TestSet(t *testing.T) {
 	is := is.New(t)
 	for _, test := range setTests {
-		//log.Println(test)
 		ok := m.SetOK(test.M, test.K, test.V)
 		if test.X == nil {
 			is.Nil(test.M)

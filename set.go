@@ -53,14 +53,15 @@ func setOK(m interface{}, keys []string, value interface{}) bool {
 // set sets the value to the key.
 // Supports array setting: arr[2]=val.
 func set(m interface{}, k string, value interface{}) bool {
-
+	arrayType := reflect.TypeOf([]interface{}(nil))
 	if k[len(k)-1] == closingBracket {
 		segs, i := parseArrayPath(k)
 		if i == -1 {
 			return false
 		}
+
 		sub, ok := get(m, segs[0])
-		if !ok {
+		if !ok || !reflect.TypeOf(sub).ConvertibleTo(arrayType) {
 			return false
 		}
 
